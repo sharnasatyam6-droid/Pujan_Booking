@@ -1,11 +1,14 @@
 const { db, json, method, readBody, normaliseDigits, cleanText, clientKey, allowRate, notifyAdmin } = require("../lib/server");
 const ALLOWED_TIMES = new Set(["प्रातःकाल (६ से ९ बजे)", "प्रातः (९ से १२ बजे)", "दोपहर (१२ से ४ बजे)", "सायंकाल (४ से ८ बजे)", "समय पर चर्चा कर सकते हैं"]);
 function indiaToday() {
-  return new Intl.DateTimeFormat("en-CA", { timeZone: "Asia/Kolkata", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());
+  const parts = new Intl.DateTimeFormat("en", { timeZone: "Asia/Kolkata", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(new Date());
+  const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
+  return values.year + "-" + values.month + "-" + values.day;
 }
 function makeReference() {
-  const date = new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" }).replace(/-/g, "");
-  return "VP" + date + "-" + require("node:crypto").randomBytes(3).toString("hex").toUpperCase();
+  const parts = new Intl.DateTimeFormat("en", { timeZone: "Asia/Kolkata", year: "numeric", month: "2-digit", day: "2-digit" }).formatToParts(new Date());
+  const values = Object.fromEntries(parts.map(part => [part.type, part.value]));
+  return "VP" + values.year + values.month + values.day + "-" + require("node:crypto").randomBytes(3).toString("hex").toUpperCase();
 }
 module.exports = async function handler(req, res) {
   if (!method(req, res, ["POST"])) return;
