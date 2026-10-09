@@ -1,12 +1,12 @@
-# Backend (planned)
+# पृष्ठभाग — आगामी चरण
 
-This folder is reserved for the next phase. The current project is intentionally frontend-only.
+यह निर्देशिका आगामी चरण के लिए सुरक्षित है। वर्तमान परियोजना केवल सामने दिखने वाले जाल-पृष्ठ का प्रारूप है।
 
-Planned responsibilities:
-- Validate and accept booking requests through an API.
-- Store requests in a persistent database.
-- Provide a private way for the pujari/admin to review and update booking status.
-- Keep secrets and database credentials in environment variables, never in frontend JavaScript.
-- Add rate limiting / spam protection and a privacy-conscious retention policy.
+आगामी कार्य:
+- निवेदन-पत्र को सुरक्षित रूप से स्वीकार करना और उसकी जाँच करना।
+- निवेदनों को स्थायी आँकड़ा-भण्डार में सुरक्षित रखना।
+- पुरोहित अथवा व्यवस्थापक के लिए निजी निवेदन-सूची बनाना।
+- गोपनीय कुंजियों को सामने वाले जाल-पृष्ठ की जावास्क्रिप्ट में न रखना।
+- अनावश्यक निवेदनों से सुरक्षा और गोपनीयता की व्यवस्था करना।
 
-For Vercel, the API can later be implemented as serverless functions under `api/` or as a separately deployed backend service. The current demo form does not send or save personal information.
+आगे चलकर वर्सेल पर `api/` निर्देशिका में सर्वर रहित कार्य बनाए जा सकते हैं अथवा अलग पृष्ठभाग सेवा प्रकाशित की जा सकती है। वर्तमान नमूना-पत्र कोई व्यक्तिगत जानकारी भेजता या सुरक्षित नहीं करता।
