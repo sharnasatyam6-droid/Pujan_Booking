@@ -1,0 +1,15 @@
+{
+  "name": "pujan-booking",
+  "version": "1.0.0",
+  "private": true,
+  "description": "वैदिक पूजन-पाठ की वेबसाइट और सुरक्षित पूजन-निवेदन पृष्ठभाग",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.0.2"
+  },
+  "scripts": {
+    "start": "vercel dev"
+  }
+}
