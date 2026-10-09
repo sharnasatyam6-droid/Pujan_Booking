@@ -1,0 +1,2 @@
+import { neon } from '@neondatabase/serverless';
+export default async function handler(req,res){if(req.method!=='GET')return res.status(405).json({error:'अनुमत विधि नहीं'});if(!process.env.DATABASE_URL)return res.status(503).json({ok:false,database:false,message:'डेटाबेस संयोजन अभी निर्धारित नहीं है'});try{const sql=neon(process.env.DATABASE_URL);await sql`SELECT 1`;return res.status(200).json({ok:true,database:true})}catch(e){console.error('health check failed');return res.status(503).json({ok:false,database:false,message:'डेटाबेस उपलब्ध नहीं है'})}}
