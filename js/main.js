@@ -17,6 +17,7 @@
 
   function openModal(name, price) {
     lastFocusedElement = document.activeElement;
+    document.getElementById("modalTitle").innerHTML = 'पूजन हेतु <em>निवेदन करें।</em>';
     selectedPuja.textContent = name || "श्री सत्यनारायण पूजन";
     selectedPrice.textContent = "₹" + hindiDigits(Number(price || 2100).toLocaleString("en-IN"));
     form.hidden = false;
