@@ -7,7 +7,7 @@ module.exports = async function handler(req, res) {
     }
     const usernameExpected = process.env.ADMIN_USERNAME;
     const passwordExpected = process.env.ADMIN_PASSWORD;
-    if (!usernameExpected || !passwordExpected || !process.env.SESSION_SECRET || process.env.SESSION_SECRET.length < 32) {
+    if (!usernameExpected || !passwordExpected || passwordExpected.length < 16 || !process.env.SESSION_SECRET || process.env.SESSION_SECRET.length < 32) {
       return json(res, 503, { error: "व्यवस्थापक प्रवेश अभी विन्यस्त नहीं है। पर्यावरण चर जाँचें।" });
     }
     const sql = db();
