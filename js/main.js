@@ -54,7 +54,7 @@
   document.getElementById("samagriNotify").addEventListener("click", () => {
     document.getElementById("samagriMessage").textContent = "पूजन-सामग्री का संग्रह अभी उपलब्ध नहीं है। कृपया कुछ समय बाद पुनः देखें।";
   });
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     feedback.textContent = "";
     if (!form.reportValidity()) return;
@@ -65,21 +65,49 @@
       form.elements.phone.focus();
       return;
     }
-    const chosenDate = new Date(data.get("date") + "T00:00:00");
-    const dateLabel = chosenDate.toLocaleDateString("hi-IN", { day: "numeric", month: "long", year: "numeric" });
-    const name = String(data.get("name")).trim();
-    const location = String(data.get("location")).trim();
+    const name = String(data.get("name") || "").trim();
+    const location = String(data.get("location") || "").trim();
     if (!name || !location) {
       feedback.textContent = "कृपया अपना नाम और पूजन का स्थान भरें।";
       return;
     }
-    form.hidden = true;
-    successPanel.hidden = false;
-    document.getElementById("successText").textContent =
-      name + " जी, " + dateLabel + " को " + selectedPuja.textContent +
-      " हेतु आपका निवेदन प्रारूप तैयार है। चुना गया समय: " + data.get("time") +
-      "। कोई जानकारी भेजी या सुरक्षित नहीं की गई है। पूजन की व्यवस्था और तिथि की पुष्टि हेतु पुरोहित जी से सीधे सम्पर्क करें।";
-    successPanel.querySelector("button").focus();
+    const submitButton = form.querySelector('[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.textContent = "निवेदन भेजा जा रहा है…";
+    try {
+      const response = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          phone,
+          date: data.get("date"),
+          time: data.get("time"),
+          location,
+          notes: data.get("notes") || "",
+          puja_slug: "satyanarayan"
+        })
+      });
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(result.error || "निवेदन नहीं भेजा जा सका। कृपया बाद में प्रयास करें।");
+      const booking = result.booking;
+      const chosenDate = new Date(String(booking.booking_date).slice(0, 10) + "T00:00:00");
+      const dateLabel = chosenDate.toLocaleDateString("hi-IN", { day: "numeric", month: "long", year: "numeric" });
+      form.hidden = true;
+      successPanel.hidden = false;
+      document.getElementById("modalTitle").textContent = "निवेदन प्राप्त हुआ।";
+      document.getElementById("successText").textContent =
+        name + " जी, " + dateLabel + " को " + booking.puja_name +
+        " हेतु आपका निवेदन प्राप्त हो गया है। निवेदन क्रमांक: " + booking.reference +
+        "। चुना गया समय: " + booking.time_slot + "। कृपया यह क्रमांक सुरक्षित रखें।";
+      successPanel.querySelector(".demo-notice").textContent =
+        "यह निवेदन प्राप्त हुआ है, किन्तु पूजन की तिथि अभी निश्चित नहीं है। व्यवस्थापक आपसे सम्पर्क करके पुष्टि करेंगे।";
+      successPanel.querySelector("button").focus();
+    } catch (error) {
+      feedback.textContent = error.message || "निवेदन नहीं भेजा जा सका। कृपया बाद में प्रयास करें।";
+    } finally {
+      submitButton.disabled = false;
+      submitButton.innerHTML = 'निवेदन भेजें <span>↗</span>';
+    }
   });
-  // यह केवल दृश्य प्रारूप है। अभी कोई आँकड़ा-भण्डार, संदेश सेवा या वास्तविक बुकिंग व्यवस्था जुड़ी नहीं है।
 })();
