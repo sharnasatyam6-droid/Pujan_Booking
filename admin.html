@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#100d20">
+  <title>व्यवस्थापक पटल — वैदिक पूजन-पाठ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="js/admin.js" defer></script>
+</head>
+<body>
+  <header class="admin-header"><a class="admin-brand" href="index.html"><span>ॐ</span><span>वैदिक पूजन-पाठ<small>व्यवस्थापक पटल</small></span></a><a class="back-link" href="index.html">मुख्य पृष्ठ ↗</a></header>
+  <main class="admin-main">
+    <section class="login-card" id="loginView">
+      <div class="login-symbol">ॐ</div><p class="eyebrow">निजी प्रवेश</p><h1>व्यवस्थापक <em>प्रवेश।</em></h1><p class="muted">पूजन निवेदन देखने के लिए अपना व्यवस्थापक नाम और गुप्तशब्द लिखें।</p>
+      <form id="loginForm"><label>व्यवस्थापक नाम<input name="username" autocomplete="username" required maxlength="100"></label><label>गुप्तशब्द<input name="password" type="password" autocomplete="current-password" required maxlength="200"></label><button class="gold-button" type="submit">सुरक्षित प्रवेश करें ↗</button><p class="message" id="loginMessage" role="status"></p></form>
+      <p class="security-note">यह पटल केवल अधिकृत व्यवस्थापक के लिए है।</p>
+    </section>
+    <section id="dashboardView" hidden>
+      <div class="dashboard-heading"><div><p class="eyebrow">आपकी सेवा का संचालन</p><h1>पूजन <em>निवेदन।</em></h1><p class="muted">निवेदन की स्थिति देखें और आवश्यकता अनुसार बदलें।</p></div><button id="logoutButton" class="quiet-button">बाहर जाएँ ↗</button></div>
+      <div class="stats-grid" id="statsGrid"><article><span>कुल निवेदन</span><strong id="statTotal">—</strong></article><article><span>पुष्टि की प्रतीक्षा</span><strong id="statPending">—</strong></article><article><span>पुष्टि किए गए</span><strong id="statConfirmed">—</strong></article><article><span>सम्पन्न पूजन</span><strong id="statCompleted">—</strong></article></div>
+      <div class="list-toolbar"><div><h2>निवेदन सूची</h2><p class="muted">प्रत्येक निवेदन की तिथि और विवरण जाँचें।</p></div><label class="filter-label">स्थिति<select id="statusFilter"><option value="">सभी निवेदन</option><option value="pending">पुष्टि की प्रतीक्षा</option><option value="confirmed">पुष्टि की गई</option><option value="completed">पूजन सम्पन्न</option><option value="cancelled">रद्द</option></select></label><button id="refreshButton" class="quiet-button">सूची ताज़ा करें ↻</button></div>
+      <p class="message" id="dashboardMessage" role="status"></p><div class="booking-list" id="bookingList"><div class="empty-state">निवेदन सूची प्राप्त हो रही है…</div></div>
+      <p class="dashboard-footnote">निवेदन प्राप्त होना तिथि की पुष्टि नहीं है। पुष्टि करने से पहले ग्राहक से सीधे बात करें।</p>
+    </section>
+  </main>
+  <footer class="admin-footer">ॐ शान्तिः शान्तिः शान्तिः</footer>
+</body>
+</html>
