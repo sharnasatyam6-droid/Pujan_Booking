@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>पूजनम् | वैदिक पूजा सेवा</title>
+    <meta name="theme-color" content="#101d32">
+    <meta name="description" content="आचार्य कमलेश महाराज के साथ श्री सत्यनारायण कथा एवं पूजा बुक करें।">
+    <title>पूजनम् | श्री सत्यनारायण कथा एवं पूजा</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="navbar">
-        <a href="#" class="logo">॥ पूजनम् ॥</a>
+        <a href="#home" class="logo">॥ पूजनम् ॥</a>
 
-        <nav>
+        <nav aria-label="मुख्य नेविगेशन">
             <a href="#home">मुख्य पृष्ठ</a>
-            <a href="#services">पूजा सेवाएँ</a>
+            <a href="#services">पूजा सेवा</a>
             <a href="#about">हमारे आचार्य</a>
         </nav>
 
@@ -29,29 +31,21 @@
                 </h1>
 
                 <p class="description">
-                     वैदिक विधि-विधान से पूजा-पाठ,
-                    अनुभवी आचार्य के मार्गदर्शन में।
-                    अपने घर पर पूजा बुक करें और
-                    पूजन सामग्री भी मँगाएँ।
+                    श्री सत्यनारायण कथा एवं पूजा वैदिक विधि-विधान से
+                    सम्पन्न कराने के लिए आचार्य कमलेश महाराज से
+                    बुकिंग का अनुरोध करें।
                 </p>
 
                 <div class="hero-actions">
-                    <a href="#booking" class="primary-button">
-                        पूजा बुक करें ↗
-                    </a>
-
-                    <a href="#services" class="secondary-button">
-                        पूजा सेवाएँ देखें
-                    </a>
+                    <a href="#booking" class="primary-button">कथा एवं पूजा बुक करें ↗</a>
+                    <a href="#services" class="secondary-button">पूजा का विवरण देखें</a>
                 </div>
 
-                <p class="trust-line">
-                    ✦ वैदिक परंपरा &nbsp; ✦ विधि-विधान &nbsp; ✦ श्रद्धा
-                </p>
+                <p class="trust-line">✦ वैदिक परंपरा &nbsp; ✦ विधि-विधान &nbsp; ✦ श्रद्धा</p>
             </div>
 
             <div class="hero-card">
-                <div class="om-symbol">ॐ</div>
+                <div class="om-symbol" aria-hidden="true">ॐ</div>
                 <p class="card-label">वैदिक पूजन-पाठ</p>
                 <h2>आचार्य कमलेश महाराज</h2>
                 <div class="gold-line"></div>
@@ -60,48 +54,91 @@
         </section>
 
         <section class="services" id="services">
-            <p class="eyebrow">हमारी सेवाएँ</p>
-            <h2>हर शुभ अवसर के लिए</h2>
+            <p class="eyebrow">हमारी पूजा सेवा</p>
+            <h2>श्री सत्यनारायण कथा एवं पूजा</h2>
 
-            <div class="srvice-grid">
-                <article class="service-card">
-                    <span> <img src="images/Satyanarayan.png" width="200" alt=""></span>
-                    <h3>सत्यनारायण पूजा</h3>
-                    <p>विधि-विधान से सत्यनारायण भगवान की पूजा।</p>
-                    <strong>₹2,100</strong>
-                </article>
-
-                <article>
-                    <span> <img src="images/GrahPravesh.png" width="200" alt=""></span>
-                    <h3>गृह प्रवेश पूजा</h3>
-                    <p>नवीन गृह में मंगल और शुभता के लिए।</p>
-                    <strong>₹25,000</strong>
-                </article>
-
-                <article>
-                    <span></span>
-                    <h3>पूजन सामग्री</h3>
-                    <p>पूजा के लिए आवश्यक सामग्री मँगाएँ।</p>
-                    <strong>शीघ्र उपलब्ध</strong>
+            <div class="service-grid">
+                <article class="service-card featured-service">
+                    <img
+                        class="service-image"
+                        src="images/Satyanarayan.png"
+                        alt="श्री सत्यनारायण भगवान"
+                        loading="lazy"
+                    >
+                    <p class="service-tag">विशेष पूजा सेवा</p>
+                    <h3>सत्यनारायण कथा एवं पूजा</h3>
+                    <p>भगवान श्री सत्यनारायण की कथा और पूजा के लिए अपनी सुविधानुसार तारीख, समय और स्थान का अनुरोध भेजें।</p>
+                    <strong class="service-price">₹ २,१००</strong>
+                    <a class="service-book-link" href="#booking">बुकिंग अनुरोध करें ↗</a>
                 </article>
             </div>
+            <p class="service-note">बुकिंग की पुष्टि तारीख, स्थान और आचार्य जी की उपलब्धता के अनुसार की जाएगी।</p>
         </section>
-
 
         <section class="about" id="about">
             <p class="eyebrow">हमारे आचार्य</p>
             <h2>आचार्य कमलेश महाराज</h2>
             <p>
-                वैदिक परंपराओं के अनुरूप पूजा-पाठ
-                एवं धार्मिक अनुष्ठानों के लिए संपर्क करें।
+                वैदिक परंपराओं के अनुरूप श्री सत्यनारायण कथा एवं पूजा
+                के आयोजन के लिए बुकिंग अनुरोध भेजें। पूजा की तारीख,
+                स्थान और अन्य विवरण की पुष्टि संपर्क के माध्यम से की जाएगी।
             </p>
         </section>
 
         <section class="booking" id="booking">
-            <h2>अपने शुभ कार्य के लिए संपर्क करें</h2>
-            <p>पूजा की तारीख, स्थान और अन्य जानकारी के लिए संपर्क करें</p>
-            <button id="contactButton">पूजा बुकिंग शुरू करें</button>
-            <p id="contactMessage"></p>
+            <p class="eyebrow">पूजा बुकिंग</p>
+            <h2>श्री सत्यनारायण कथा एवं पूजा बुक करें</h2>
+            <p class="booking-intro">नीचे अपनी जानकारी भरें। तारीख और स्थान की पुष्टि संपर्क के बाद की जाएगी।</p>
+
+            <div class="booking-price-panel">
+                <span>पूजा शुल्क</span>
+                <strong>₹ २,१००</strong>
+                <small>अंतिम व्यवस्था की पुष्टि आचार्य जी से होगी।</small>
+            </div>
+
+            <form id="bookingForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="customerName">पूरा नाम *</label>
+                        <input id="customerName" name="customerName" type="text" autocomplete="name" placeholder="अपना नाम लिखें" required maxlength="100">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">मोबाइल नंबर *</label>
+                        <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="१० अंकों का मोबाइल नंबर" pattern="[0-9]{10}" maxlength="10" minlength="10" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pujaDate">पूजा की तारीख *</label>
+                        <input id="pujaDate" name="pujaDate" type="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pujaTime">पसंदीदा समय *</label>
+                        <select id="pujaTime" name="pujaTime" required>
+                            <option value="">समय चुनें</option>
+                            <option value="सुबह">सुबह</option>
+                            <option value="दोपहर">दोपहर</option>
+                            <option value="शाम">शाम</option>
+                            <option value="आचार्य जी से तय करेंगे">आचार्य जी से तय करेंगे</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group form-full">
+                        <label for="pujaAddress">पूजा का पूरा पता *</label>
+                        <textarea id="pujaAddress" name="pujaAddress" rows="3" autocomplete="street-address" placeholder="मकान नंबर, क्षेत्र, शहर और राज्य लिखें" required maxlength="500"></textarea>
+                    </div>
+
+                    <div class="form-group form-full">
+                        <label for="requirements">अन्य जानकारी (वैकल्पिक)</label>
+                        <textarea id="requirements" name="requirements" rows="2" placeholder="यदि कोई विशेष जानकारी हो तो लिखें" maxlength="500"></textarea>
+                    </div>
+                </div>
+
+                <button class="booking-submit" type="submit">बुकिंग अनुरोध आगे बढ़ाएँ ↗</button>
+                <p id="bookingMessage" class="booking-message" role="status" aria-live="polite"></p>
+                <p class="privacy-note">आपकी जानकारी केवल इस बुकिंग अनुरोध को तैयार करने के लिए उपयोग की जाएगी।</p>
+            </form>
         </section>
     </main>
 
