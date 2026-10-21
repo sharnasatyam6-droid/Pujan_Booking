@@ -37,7 +37,8 @@ if (bookingForm) {
             pujaDate: String(formData.get("pujaDate") || ""),
             pujaTime: String(formData.get("pujaTime") || ""),
             pujaAddress: String(formData.get("pujaAddress") || "").trim(),
-            requirements: String(formData.get("requirements") || "").trim()
+            requirements: String(formData.get("requirements") || "").trim(),
+            whatsappConsent: formData.get("whatsappConsent") === "on"
         };
 
         if (submitButton) {
