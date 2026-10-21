@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS bookings (
  puja_time TEXT NOT NULL,
  puja_address TEXT NOT NULL,
  requirements TEXT NOT NULL DEFAULT '',
+ whatsapp_consent BOOLEAN NOT NULL DEFAULT FALSE,
  amount_paise INTEGER NOT NULL CHECK (amount_paise = 210000),
  currency TEXT NOT NULL DEFAULT 'INR',
  status TEXT NOT NULL DEFAULT 'pending_payment' CHECK (status IN ('pending_payment','paid','payment_failed','cancelled')),
