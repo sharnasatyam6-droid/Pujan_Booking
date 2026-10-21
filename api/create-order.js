@@ -18,19 +18,20 @@ module.exports = async function handler(req, res) {
     const pujaTime = typeof body.pujaTime === "string" ? body.pujaTime : "";
     const pujaAddress = typeof body.pujaAddress === "string" ? body.pujaAddress.trim() : "";
     const requirements = typeof body.requirements === "string" ? body.requirements.trim() : "";
+    const whatsappConsent = body.whatsappConsent === true;
     const now = new Date();
     const today = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
     const validDate = /^\d{4}-\d{2}-\d{2}$/.test(pujaDate) && pujaDate >= today && !Number.isNaN(Date.parse(pujaDate + "T00:00:00Z"));
     const validTime = ["सुबह", "दोपहर", "शाम", "आचार्य जी से तय करेंगे"].includes(pujaTime);
     if (!validText(customerName, 100) || !/^\d{10}$/.test(phone) || !validDate || !validTime ||
-        !validText(pujaAddress, 500) || requirements.length > 500) {
+        !validText(pujaAddress, 500) || requirements.length > 500 || !whatsappConsent) {
         return res.status(400).json({ error: "कृपया सभी जानकारी सही तरीके से भरें।" });
     }
     const bookingId = randomUUID();
     const sql = getSql();
     try {
-        await sql`INSERT INTO bookings (id, customer_name, customer_phone, puja_date, puja_time, puja_address, requirements, amount_paise)
-            VALUES (${bookingId}, ${customerName}, ${phone}, ${pujaDate}, ${pujaTime}, ${pujaAddress}, ${requirements}, 210000)`;
+        await sql`INSERT INTO bookings (id, customer_name, customer_phone, puja_date, puja_time, puja_address, requirements, whatsapp_consent, amount_paise)
+            VALUES (${bookingId}, ${customerName}, ${phone}, ${pujaDate}, ${pujaTime}, ${pujaAddress}, ${requirements}, ${whatsappConsent}, 210000)`;
         const response = await fetch("https://api.razorpay.com/v1/orders", {
             method: "POST",
             headers: {
