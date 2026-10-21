@@ -88,7 +88,7 @@
         <section class="booking" id="booking">
             <p class="eyebrow">पूजा बुकिंग</p>
             <h2>श्री सत्यनारायण कथा एवं पूजा बुक करें</h2>
-            <p class="booking-intro">नीचे अपनी जानकारी भरें। तारीख और स्थान की पुष्टि संपर्क के बाद की जाएगी।</p>
+            <p class="booking-intro">नीचे अपनी जानकारी भरें। बुकिंग के लिए ₹2,100 का ऑनलाइन भुगतान आवश्यक है। पूजा की तारीख और स्थान की अंतिम पुष्टि आचार्य जी से होगी।</p>
 
             <div class="booking-price-panel">
                 <span>पूजा शुल्क</span>
@@ -105,7 +105,7 @@
 
                     <div class="form-group">
                         <label for="phone">मोबाइल नंबर *</label>
-                        <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="१० अंकों का मोबाइल नंबर" pattern="[0-9]{10}" maxlength="10" minlength="10" required>
+                        <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10 अंकों का मोबाइल नंबर (0–9)" pattern="[0-9]{10}" maxlength="10" minlength="10" required>
                     </div>
 
                     <div class="form-group">
@@ -135,9 +135,9 @@
                     </div>
                 </div>
 
-                <button class="booking-submit" type="submit">बुकिंग अनुरोध आगे बढ़ाएँ ↗</button>
+                <button class="booking-submit" type="submit">विवरण भरकर भुगतान करें ↗</button>
                 <p id="bookingMessage" class="booking-message" role="status" aria-live="polite"></p>
-                <p class="privacy-note">आपकी जानकारी केवल इस बुकिंग अनुरोध को तैयार करने के लिए उपयोग की जाएगी।</p>
+                <p class="privacy-note">आपकी जानकारी बुकिंग और भुगतान सत्यापन के लिए सुरक्षित रूप से भेजी जाएगी।</p>
             </form>
         </section>
     </main>
@@ -147,6 +147,7 @@
         <p>© २०२६ पूजनम् • वैदिक पूजा सेवा</p>
     </footer>
 
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
