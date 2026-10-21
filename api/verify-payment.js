@@ -26,7 +26,7 @@ async function confirmPayment(orderId, paymentId, signature) {
     const rows = await sql`UPDATE bookings SET status = 'paid', razorpay_payment_id = ${paymentId},
         paid_at = COALESCE(paid_at, NOW()), updated_at = NOW()
         WHERE razorpay_order_id = ${orderId} AND amount_paise = 210000
-          AND (status <> 'paid' OR razorpay_payment_id = ${paymentId})
+          AND status <> 'paid'
         RETURNING id, customer_name, customer_phone, puja_date, puja_time, puja_address, requirements, status`;
     if (!rows.length) {
         const existing = await sql`SELECT id, status, razorpay_payment_id FROM bookings WHERE razorpay_order_id = ${orderId} LIMIT 1`;
